@@ -1,6 +1,6 @@
 [
 {
-  "modid": "starcraftmod",
+  "modid": "starcraft",
   "name": "StarCraft Mod",
   "description": "A StarCraft mod",
   "version": "${version}",
