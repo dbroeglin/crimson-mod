@@ -20,43 +20,20 @@ public class WorldGenPylon extends WorldGenerator {
 
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
-        BlockPos blockpos = position;
-        BlockPos blockpos1 = position.up(4);
-        Block block = Blocks.GOLD_BLOCK;
-        this.limb(worldIn, blockpos, blockpos1, block);
+        BlockPos pylonPos = position.up(1);
+        Block block = Blocks.DIAMOND_BLOCK;
 
+        for(int i = 0; i < 5; i++) {
+            this.setBlockAndNotifyAdequately(worldIn, pylonPos.up(i), block.getDefaultState());
+        }
+
+        block = Blocks.GOLD_BLOCK;
+        for(int i = 1; i <= 3; i += 1) {
+            this.setBlockAndNotifyAdequately(worldIn, pylonPos.up(i).north(), block.getDefaultState());
+            this.setBlockAndNotifyAdequately(worldIn, pylonPos.up(i).east(), block.getDefaultState());
+            this.setBlockAndNotifyAdequately(worldIn, pylonPos.up(i).south(), block.getDefaultState());
+            this.setBlockAndNotifyAdequately(worldIn, pylonPos.up(i).west(), block.getDefaultState());
+        }
         return true;
-    }
-
-    void limb(World world, BlockPos p_175937_1_, BlockPos p_175937_2_, Block p_175937_3_)
-    {
-        BlockPos blockpos = p_175937_2_.add(-p_175937_1_.getX(), -p_175937_1_.getY(), -p_175937_1_.getZ());
-        int i = this.getGreatestDistance(blockpos);
-        float f = (float)blockpos.getX() / (float)i;
-        float f1 = (float)blockpos.getY() / (float)i;
-        float f2 = (float)blockpos.getZ() / (float)i;
-
-        for (int j = 0; j <= i; ++j)
-        {
-            BlockPos blockpos1 = p_175937_1_.add((double)(0.5F + (float)j * f), (double)(0.5F + (float)j * f1), (double)(0.5F + (float)j * f2));
-
-            this.setBlockAndNotifyAdequately(world, blockpos1, p_175937_3_.getDefaultState());
-        }
-    }
-
-    private int getGreatestDistance(BlockPos posIn)
-    {
-        int i = MathHelper.abs(posIn.getX());
-        int j = MathHelper.abs(posIn.getY());
-        int k = MathHelper.abs(posIn.getZ());
-
-        if (k > i && k > j)
-        {
-            return k;
-        }
-        else
-        {
-            return j > i ? j : i;
-        }
     }
 }
