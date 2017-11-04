@@ -1,3 +1,5 @@
 item.starcraft.starcraft_logo.name=StarCraft Egg
 
 tile.starcraft.pylonblock.name=Pylon Block
+
+itemGroup.starcraft=StarCraft

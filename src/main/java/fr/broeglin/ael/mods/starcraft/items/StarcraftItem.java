@@ -3,7 +3,6 @@ package fr.broeglin.ael.mods.starcraft.items;
 import fr.broeglin.ael.mods.starcraft.StarCraftMod;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityEgg;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -24,6 +23,7 @@ public class StarcraftItem extends Item {
     public StarcraftItem() {
         setRegistryName(REGISTRY_NAME);
         setUnlocalizedName(StarCraftMod.MODID + "." + REGISTRY_NAME);
+        setCreativeTab(StarCraftMod.starcraftTab);
     }
 
     @SideOnly(Side.CLIENT)
