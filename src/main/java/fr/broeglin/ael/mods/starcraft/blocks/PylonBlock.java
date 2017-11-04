@@ -33,13 +33,12 @@ public class PylonBlock extends Block implements IGrowable
 
     @Override
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
-        System.out.println("Growing Pylon!!!");
+        StarCraftMod.logger.debug("Growing Pylon...");
 
         IBlockState iblockstate2 = Blocks.AIR.getDefaultState();
         worldIn.setBlockState(pos, iblockstate2, 4);
 
         new WorldGenPylon(true).generate(worldIn, rand, pos);
-        //boolean res = new WorldGenBigTree(true).generate(worldIn, rand, pos);
     }
 
 
