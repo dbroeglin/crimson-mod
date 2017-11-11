@@ -28,6 +28,7 @@ public class StarcraftItem extends Item {
 
     @SideOnly(Side.CLIENT)
     public void initModel() {
+        StarCraftMod.logger.debug("Stracraft Item initModel...");
         ModelLoader.setCustomModelResourceLocation(this, 0,
                 new ModelResourceLocation(getRegistryName(), "inventory"));
     }

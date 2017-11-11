@@ -3,7 +3,6 @@ package fr.broeglin.ael.mods.starcraft.proxy;
 import fr.broeglin.ael.mods.starcraft.StarCraftMod;
 import fr.broeglin.ael.mods.starcraft.utils.ModItems;
 import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -17,6 +16,7 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
+        StarCraftMod.logger.debug("Starcraft Client: preInit...");
         super.preInit(event);
 
         OBJLoader.INSTANCE.addDomain(StarCraftMod.MODID);
@@ -27,11 +27,13 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void init(FMLInitializationEvent event) {
+        StarCraftMod.logger.info("Starcraft Client: init...");
         super.init(event);
     }
 
     @Override
     public void postInit(FMLPostInitializationEvent event) {
+        StarCraftMod.logger.info("Starcraft Client: postInit...");
         super.postInit(event);
         //ModBlocks.initItemModels();
     }
@@ -39,6 +41,8 @@ public class ClientProxy extends CommonProxy {
 
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
+        StarCraftMod.logger.info("Starcraft Client: registerModels...");
+
         //ModBlocks.initModels();
         ModItems.initModels();
     }
