@@ -14,19 +14,22 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class RegistryHandler {
 
     @SubscribeEvent
-    public static void registerItems(RegistryEvent.Register<Item> event) {
-        StarCraftMod.logger.debug("RegistryHandler registerItems...");
-        event.getRegistry().register(new StarcraftItem());
+    public static void registerBlocks(RegistryEvent.Register<Block> event) {
+        StarCraftMod.logger.debug("RegistryHandler registerBlocks {}...", event.getName());
 
+        // register only items that have models...
+        event.getRegistry().register(new PylonBlock());
+    }
+
+    @SubscribeEvent
+    public static void registerItems(RegistryEvent.Register<Item> event) {
+        StarCraftMod.logger.debug("RegistryHandler registerItems {}...", event.getName());
+        event.getRegistry().register(new StarcraftItem());
 
         event.getRegistry().register(
                 new ItemBlock(ModBlocks.pylonBlock)
                         .setRegistryName(ModBlocks.pylonBlock.getRegistryName()));
     }
 
-    @SubscribeEvent
-    public static void registerBlocks(RegistryEvent.Register<Block> event) {
-        StarCraftMod.logger.debug("RegistryHandler registerBlocks...");
-        event.getRegistry().register(new PylonBlock());
-    }
+
 }

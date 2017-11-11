@@ -1,24 +1,13 @@
 package fr.broeglin.ael.mods.starcraft.blocks;
 
 import fr.broeglin.ael.mods.starcraft.StarCraftMod;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.properties.PropertyInteger;
-import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.text.translation.I18n;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.*;
 
 import java.util.Random;
 
@@ -29,6 +18,7 @@ public class PylonBlock extends Block implements IGrowable
         super(Material.ROCK);
         setUnlocalizedName(StarCraftMod.MODID + ".pylonblock");
         setRegistryName("pylonblock");
+        setCreativeTab(StarCraftMod.starcraftTab);
     }
 
     @Override

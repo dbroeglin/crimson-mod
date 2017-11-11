@@ -12,11 +12,9 @@ public class ModItems {
     public static StarcraftItem starcraftLogo;
 
 
-
     @SideOnly(Side.CLIENT)
     public static void initModels() {
         StarCraftMod.logger.debug("ModItems initModels...");
-
 
         starcraftLogo.initModel();
     }

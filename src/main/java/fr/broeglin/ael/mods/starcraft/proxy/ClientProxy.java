@@ -14,9 +14,6 @@ public class ClientProxy extends CommonProxy {
         super.preInit(event);
 
         OBJLoader.INSTANCE.addDomain(StarCraftMod.MODID);
-
-        // Typically initialization of models and such goes here:
-        //ModEntities.initModels();
     }
 
     @Override
@@ -29,6 +26,5 @@ public class ClientProxy extends CommonProxy {
     public void postInit(FMLPostInitializationEvent event) {
         StarCraftMod.logger.info("Starcraft Client: postInit...");
         super.postInit(event);
-        //ModBlocks.initItemModels();
     }
 }
