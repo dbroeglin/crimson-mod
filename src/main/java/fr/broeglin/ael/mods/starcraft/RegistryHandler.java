@@ -15,7 +15,7 @@ public class RegistryHandler {
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
-        StarCraftMod.logger.debug("RegistryHandler registerBlocks {}...", event.getName());
+        StarcraftMod.logger.debug("RegistryHandler registerBlocks {}...", event.getName());
 
         // register only items that have models...
         event.getRegistry().register(new PylonBlock());
@@ -23,7 +23,7 @@ public class RegistryHandler {
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
-        StarCraftMod.logger.debug("RegistryHandler registerItems {}...", event.getName());
+        StarcraftMod.logger.debug("RegistryHandler registerItems {}...", event.getName());
         event.getRegistry().register(new StarcraftItem());
 
         event.getRegistry().register(

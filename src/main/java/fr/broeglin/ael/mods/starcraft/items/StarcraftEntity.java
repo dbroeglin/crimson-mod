@@ -1,5 +1,6 @@
 package fr.broeglin.ael.mods.starcraft.items;
 
+import fr.broeglin.ael.mods.starcraft.StarcraftMod;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -57,6 +58,7 @@ public class StarcraftEntity extends EntityThrowable
      */
     protected void onImpact(RayTraceResult result)
     {
+        StarcraftMod.logger.debug("onImpact...");
         if (result.entityHit != null)
         {
             result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 0.0F);

@@ -1,6 +1,6 @@
 package fr.broeglin.ael.mods.starcraft.items;
 
-import fr.broeglin.ael.mods.starcraft.StarCraftMod;
+import fr.broeglin.ael.mods.starcraft.StarcraftMod;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -22,13 +22,13 @@ public class StarcraftItem extends Item {
 
     public StarcraftItem() {
         setRegistryName(REGISTRY_NAME);
-        setUnlocalizedName(StarCraftMod.MODID + "." + REGISTRY_NAME);
-        setCreativeTab(StarCraftMod.starcraftTab);
+        setUnlocalizedName(StarcraftMod.MODID + "." + REGISTRY_NAME);
+        setCreativeTab(StarcraftMod.starcraftTab);
     }
 
     @SideOnly(Side.CLIENT)
     public void initModel() {
-        StarCraftMod.logger.debug("Stracraft Item initModel...");
+        StarcraftMod.logger.debug("Stracraft Item initModel...");
         ModelLoader.setCustomModelResourceLocation(this, 0,
                 new ModelResourceLocation(getRegistryName(), "inventory"));
     }

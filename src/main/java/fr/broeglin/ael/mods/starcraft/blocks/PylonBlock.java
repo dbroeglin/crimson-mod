@@ -1,6 +1,6 @@
 package fr.broeglin.ael.mods.starcraft.blocks;
 
-import fr.broeglin.ael.mods.starcraft.StarCraftMod;
+import fr.broeglin.ael.mods.starcraft.StarcraftMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
@@ -16,14 +16,14 @@ public class PylonBlock extends Block implements IGrowable
 
     public PylonBlock() {
         super(Material.ROCK);
-        setUnlocalizedName(StarCraftMod.MODID + ".pylonblock");
+        setUnlocalizedName(StarcraftMod.MODID + ".pylonblock");
         setRegistryName("pylonblock");
-        setCreativeTab(StarCraftMod.starcraftTab);
+        setCreativeTab(StarcraftMod.starcraftTab);
     }
 
     @Override
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
-        StarCraftMod.logger.debug("Growing Pylon...");
+        StarcraftMod.logger.debug("Growing Pylon...");
 
         IBlockState iblockstate2 = Blocks.AIR.getDefaultState();
         worldIn.setBlockState(pos, iblockstate2, 4);

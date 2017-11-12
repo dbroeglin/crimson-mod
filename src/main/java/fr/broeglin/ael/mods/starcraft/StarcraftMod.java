@@ -11,8 +11,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = StarCraftMod.MODID, version = StarCraftMod.VERSION)
-public class StarCraftMod {
+@Mod(modid = StarcraftMod.MODID, version = StarcraftMod.VERSION)
+public class StarcraftMod {
     public static final String MODID = "starcraft";
     public static final String VERSION = "1.0";
 
@@ -21,7 +21,7 @@ public class StarCraftMod {
     public static CommonProxy proxy;
 
     @Instance(MODID)
-    public static StarCraftMod instance;
+    public static StarcraftMod instance;
     public static Logger logger;
 
     public static final StarcraftTab starcraftTab = new StarcraftTab();
@@ -29,25 +29,25 @@ public class StarCraftMod {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
-        logger.info("StarCraftMod: preInit...");
+        logger.info("StarcraftMod: preInit...");
         proxy.preInit(event);
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        logger.info("StarCraftMod: init...");
+        logger.info("StarcraftMod: init...");
         proxy.init(event);
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        logger.info("StarCraftMod: postInit...");
+        logger.info("StarcraftMod: postInit...");
         proxy.postInit(event);
     }
 
     @Mod.EventHandler
     public void serverStarting(FMLServerStartingEvent event) {
-        logger.info("StarCraftMod: serverStarting...");
+        logger.info("StarcraftMod: serverStarting...");
         // event.registerServerCommand(new TeleportCommand());
     }
 

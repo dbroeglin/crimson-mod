@@ -11,7 +11,7 @@ public class ClientRegistryHandler {
 
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
-        StarCraftMod.logger.info("Starcraft Client: registerModels...");
+        StarcraftMod.logger.info("Starcraft Client: registerModels...");
         ModItems.initModels();
     }
 }
