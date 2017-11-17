@@ -11,6 +11,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
+
 @Mod(modid = StarcraftMod.MODID, version = StarcraftMod.VERSION)
 public class StarcraftMod {
     public static final String MODID = "starcraft";
@@ -23,32 +25,40 @@ public class StarcraftMod {
     @Instance(MODID)
     public static StarcraftMod instance;
     public static Logger logger;
+    public static JRubyMod container;
 
     public static final StarcraftTab starcraftTab = new StarcraftTab();
 
     @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
+    public void preInit(FMLPreInitializationEvent event) throws IOException {
         logger = event.getModLog();
         logger.info("StarcraftMod: preInit...");
         proxy.preInit(event);
+
+        container = new JRubyMod(this.getClass().getClassLoader(), logger);
+        container.preInit(event);
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         logger.info("StarcraftMod: init...");
         proxy.init(event);
+        container.init(event);
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         logger.info("StarcraftMod: postInit...");
         proxy.postInit(event);
+        container.postInit(event);
+
     }
 
     @Mod.EventHandler
     public void serverStarting(FMLServerStartingEvent event) {
         logger.info("StarcraftMod: serverStarting...");
         // event.registerServerCommand(new TeleportCommand());
+        container.serverStarting(event);
     }
 
 }
