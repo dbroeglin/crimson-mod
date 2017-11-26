@@ -1,5 +1,6 @@
 package fr.broeglin.ael.mods.starcraft;
 
+import fr.broeglin.ael.mods.starcraft.commands.JRubyCommand;
 import fr.broeglin.ael.mods.starcraft.proxy.CommonProxy;
 import fr.broeglin.ael.mods.starcraft.tabs.StarcraftTab;
 import net.minecraftforge.fml.common.Mod;
@@ -59,6 +60,8 @@ public class StarcraftMod {
         logger.info("StarcraftMod: serverStarting...");
         // event.registerServerCommand(new TeleportCommand());
         container.serverStarting(event);
+        event.registerServerCommand(new JRubyCommand(logger));
+
     }
 
 }
