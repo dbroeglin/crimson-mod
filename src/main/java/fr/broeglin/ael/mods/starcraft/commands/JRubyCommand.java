@@ -1,6 +1,8 @@
 package fr.broeglin.ael.mods.starcraft.commands;
 
 import com.google.common.collect.Lists;
+import fr.broeglin.ael.mods.starcraft.JRubyMod;
+import fr.broeglin.ael.mods.starcraft.blocks.JRubyWorldGen;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
@@ -15,9 +17,14 @@ import java.util.List;
 public class JRubyCommand implements ICommand {
 
     private Logger logger;
+    private JRubyMod container;
+    private JRubyWorldGen gen;
 
-    public JRubyCommand(Logger logger) {
+    public JRubyCommand(Logger logger, JRubyMod container) {
+
         this.logger = logger;
+        this.container = container;
+        this.gen = null; //new JRubyWorldGen();
     }
 
     @Override
@@ -27,7 +34,7 @@ public class JRubyCommand implements ICommand {
 
     @Override
     public String getUsage(ICommandSender sender) {
-        return "jruby";
+        return "jruby <filename>";
     }
 
     @Override
@@ -41,11 +48,20 @@ public class JRubyCommand implements ICommand {
 
         if (sender.getEntityWorld().isRemote) {
             logger.debug("Not processing on Client side");
-        } else {
-            logger.debug("Processing on Server side");
-
-            sender.sendMessage(new TextComponentString("JRuby!!!"));
+            return;
         }
+
+        logger.debug("Processing on Server side");
+        if (args.length != 1) {
+            sender.sendMessage(new TextComponentString("The " + getName() + " command takes exactly one argument"));
+            return;
+        }
+
+
+        String message = container.runFile(args[0], server, sender).toString();
+
+        sender.sendMessage(new TextComponentString(message));
+
     }
 
     @Override

@@ -36,7 +36,7 @@ public class StarcraftMod {
         logger.info("StarcraftMod: preInit...");
         proxy.preInit(event);
 
-        container = new JRubyMod(this.getClass().getClassLoader(), logger);
+        container = new JRubyMod(this.getClass().getClassLoader(), logger, this);
         container.preInit(event);
     }
 
@@ -60,7 +60,7 @@ public class StarcraftMod {
         logger.info("StarcraftMod: serverStarting...");
         // event.registerServerCommand(new TeleportCommand());
         container.serverStarting(event);
-        event.registerServerCommand(new JRubyCommand(logger));
+        event.registerServerCommand(new JRubyCommand(logger, container));
 
     }
 
