@@ -1,7 +1,7 @@
 require 'java'
 #require_relative 'forge'
 
-$LOGGER.info("Staring mod.rb...")
+$LOGGER.info("Starting mod.rb...")
 
 class RubyMod
 

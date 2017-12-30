@@ -1,8 +1,8 @@
 [
 {
-  "modid": "starcraft",
-  "name": "StarCraft Mod",
-  "description": "A StarCraft mod",
+  "modid": "crimson",
+  "name": "Crimson Mod",
+  "description": "A JRuby mod",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",

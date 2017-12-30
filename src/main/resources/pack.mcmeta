@@ -1,7 +1,7 @@
 {
     "pack": {
-        "description": "Starcraft Mod",
+        "description": "JRuby Mod",
         "pack_format": 3,
-        "_comment": "Starcraft Mod to learning moding"
+        "_comment": "JRuby Mod for Minecraft scripting"
     }
 }

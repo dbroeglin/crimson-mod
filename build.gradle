@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 
 version = "0.9"
 group = "fr.broeglin.ael.mods" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "starcraft"
+archivesBaseName = "crimson"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {
