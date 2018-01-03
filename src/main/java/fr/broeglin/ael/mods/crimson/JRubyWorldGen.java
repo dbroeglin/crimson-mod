@@ -1,7 +1,5 @@
-package fr.broeglin.ael.mods.crimson.blocks;
+package fr.broeglin.ael.mods.crimson;
 
-import fr.broeglin.ael.mods.crimson.CrimsonMod;
-import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -14,10 +12,6 @@ public abstract class JRubyWorldGen extends WorldGenerator {
     public JRubyWorldGen() {
         super(true);
         this.logger = CrimsonMod.logger;
-    }
-
-    public void create(Block block, BlockPos position) {
-        this.setBlockAndNotifyAdequately(world, position, block.getDefaultState());
     }
 
     protected void info(String msg) {
@@ -55,4 +49,7 @@ public abstract class JRubyWorldGen extends WorldGenerator {
         return position;
     }
 
+    public void setPosition(BlockPos position) {
+        this.position = position;
+    }
 }

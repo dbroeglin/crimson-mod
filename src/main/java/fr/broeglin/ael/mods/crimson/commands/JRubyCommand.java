@@ -2,7 +2,7 @@ package fr.broeglin.ael.mods.crimson.commands;
 
 import com.google.common.collect.Lists;
 import fr.broeglin.ael.mods.crimson.JRubyMod;
-import fr.broeglin.ael.mods.crimson.blocks.JRubyWorldGen;
+import fr.broeglin.ael.mods.crimson.JRubyWorldGen;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
@@ -13,12 +13,14 @@ import org.apache.logging.log4j.Logger;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Random;
 
 public class JRubyCommand implements ICommand {
 
     private Logger logger;
     private JRubyMod container;
     private JRubyWorldGen gen;
+    private Random random = new Random();
 
     public JRubyCommand(Logger logger, JRubyMod container) {
 
@@ -58,9 +60,10 @@ public class JRubyCommand implements ICommand {
         }
 
 
-        String message = container.runFile(args[0], server, sender).toString();
+        JRubyWorldGen gen = (JRubyWorldGen)container.runFile(args[0], server, sender);
 
-        sender.sendMessage(new TextComponentString(message));
+        gen.generate(sender.getEntityWorld(), random, sender.getPosition());
+        sender.sendMessage(new TextComponentString("OK"));
 
     }
 

@@ -15,7 +15,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.Random;
 
 public class JRubyMod {
 
@@ -31,7 +30,6 @@ public class JRubyMod {
         this.container = new ScriptingContainer();
         this.mod = mod;
         container.getVarMap().put("$MOD", mod);
-        container.getVarMap().put("$rand", new Random());
     }
 
     public void preInit(FMLPreInitializationEvent event) throws IOException {
@@ -45,6 +43,9 @@ public class JRubyMod {
         rubyMod = (RubyObject)container.callMethod(klass, "new", logger);
 
         container.callMethod(rubyMod, "pre_init", event);
+
+        url = getClass().getResource("/ruby/dsl.rb");
+        container.runScriptlet(url.openStream(), "dsl.rb");
     }
 
     public void init(FMLInitializationEvent event) {
